@@ -1,6 +1,6 @@
 import socket
 serverPort = 12000
-serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+serverSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 serverSocket.bind(('', serverPort))
 print('O servidor está pronto para receber!')
 while 1:
