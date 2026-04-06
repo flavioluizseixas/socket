@@ -5,7 +5,11 @@ minhaPorta = 5001
 
 sockobj = socket(AF_INET, SOCK_STREAM)
 dest = (meuHost, minhaPorta)
-sockobj.connect(dest)
+try:
+    sockobj.connect(dest)
+except ConnectionRefusedError:
+    print("Erro: Não foi possível conectar ao servidor. Verifique se o servidor está rodando.")
+    exit(1)
 
 print('Para sair use CTRL+X\n')
 msg = ''
