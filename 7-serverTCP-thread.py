@@ -15,6 +15,7 @@ def tratar_cliente(conn, cliente):
 
         print('Requisicao recebida de', cliente)
         print(requisicao.splitlines()[0])
+        socket_servidor = conn.getsockname()
 
         corpo = f'''<!DOCTYPE html>
 <html lang="pt-BR">
@@ -25,6 +26,7 @@ def tratar_cliente(conn, cliente):
 <body>
     <h1>Servidor HTTP com Threads</h1>
     <p>Conexao atendida com sucesso para o cliente {cliente[0]}:{cliente[1]}.</p>
+    <p>Socket criado no servidor para esta resposta: {socket_servidor[0]}:{socket_servidor[1]}.</p>
     <p>Cada conexao e processada em uma thread separada.</p>
 </body>
 </html>

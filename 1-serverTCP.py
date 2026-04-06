@@ -14,6 +14,8 @@ sockobj.listen(1)
 while True:
     conn, cliente = sockobj.accept()
     print('Conectado por:', cliente)
+    porta_socket_resposta = conn.getsockname()[1]
+    print('Porta do socket criado no servidor para responder a requisicao:', porta_socket_resposta)
 
     while True:
         recvMsg = conn.recv(1024)
